@@ -1,0 +1,428 @@
+.page-wrap {
+  background: #faf7f0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  font-family: Georgia, 'Times New Roman', serif;
+  border-left: 4px solid #d4c5a9;
+}
+
+.ruled-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.margin-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 52px;
+  width: 1px;
+  background: #f0bfbf;
+  opacity: 0.7;
+}
+
+.h-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #ddd8cc;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 20px 28px 28px 68px;
+}
+
+.section {
+  margin-bottom: 28px;
+  scroll-margin-top: 16px;
+}
+
+.hero-section {
+  position: relative;
+}
+
+.hero-eyebrow {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: #b5a08a;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.hero-name {
+  font-size: 34px;
+  font-style: italic;
+  color: #2a2016;
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
+.hero-name span {
+  color: #c0392b;
+}
+
+.hero-underline {
+  width: 56px;
+  height: 2px;
+  background: #c0392b;
+  margin: 10px 0;
+  border-radius: 1px;
+}
+
+.hero-bio {
+  font-family: 'Courier New', monospace;
+  font-size: 11.5px;
+  color: #5a4f3f;
+  line-height: 1.75;
+  max-width: 430px;
+}
+
+.hero-bio .ink {
+  color: #c0392b;
+  font-style: italic;
+}
+
+.doodle-stars {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  color: #e0b84a;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: right;
+  font-family: Georgia, serif;
+  pointer-events: none;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.contact-chip {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: #7a6a55;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-bottom: 1px dashed #c0b090;
+  padding-bottom: 1px;
+  text-decoration: none;
+}
+
+a.contact-chip:hover {
+  color: #c0392b;
+}
+
+.contact-chip svg {
+  flex-shrink: 0;
+  color: #c0392b;
+}
+
+.section-label {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #b5a08a;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #ddd8cc;
+}
+
+.skill-cluster {
+  margin-bottom: 10px;
+}
+
+.skill-cluster-label {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: #8b7355;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.pill {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 2px;
+  border: 1px solid;
+}
+
+.pill-red {
+  border-color: #e07070;
+  color: #7a2020;
+  background: #fdf0f0;
+}
+
+.pill-blue {
+  border-color: #7090c0;
+  color: #1a3560;
+  background: #f0f4fc;
+}
+
+.pill-green {
+  border-color: #70a870;
+  color: #1a4a1a;
+  background: #f0f8f0;
+}
+
+.pill-amber {
+  border-color: #c0a040;
+  color: #5a3a00;
+  background: #fdf8e8;
+}
+
+.exp-item {
+  margin-bottom: 16px;
+  padding-left: 14px;
+  border-left: 2px solid #e8d8c0;
+  position: relative;
+}
+
+.exp-dot {
+  position: absolute;
+  left: -5px;
+  top: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c0392b;
+  border: 1.5px solid #faf7f0;
+}
+
+.exp-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #2a2016;
+  margin-bottom: 1px;
+}
+
+.exp-company {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: #c0392b;
+  margin-bottom: 4px;
+}
+
+.exp-desc {
+  font-family: 'Courier New', monospace;
+  font-size: 10.5px;
+  color: #6a5a45;
+  line-height: 1.65;
+}
+
+.exp-desc .stat,
+.proj-highlight {
+  color: #c0392b;
+  font-style: italic;
+}
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 520px) {
+  .content,
+  .nav-footer {
+    padding-left: 28px;
+  }
+
+  .proj-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-name {
+    font-size: 28px;
+  }
+
+  .doodle-stars {
+    display: none;
+  }
+}
+
+.proj-card {
+  background: #fff;
+  border: 1px solid #e0d8cc;
+  border-radius: 3px;
+  padding: 12px 13px;
+  position: relative;
+  transition: border-color 0.15s;
+}
+
+.proj-card:hover {
+  border-color: #c0392b;
+}
+
+.proj-num {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  color: #c0a890;
+  margin-bottom: 4px;
+}
+
+.proj-name {
+  font-size: 13px;
+  font-style: italic;
+  color: #2a2016;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.proj-desc {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: #7a6a55;
+  line-height: 1.6;
+  margin-bottom: 7px;
+}
+
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.proj-tag {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  padding: 1px 6px;
+  background: #f5f0e8;
+  color: #8a7a60;
+  border: 1px solid #e0d8cc;
+  border-radius: 2px;
+}
+
+.corner-star {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: #e0b84a;
+  font-size: 11px;
+  font-family: Georgia, serif;
+}
+
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cert-item {
+  font-family: 'Courier New', monospace;
+  font-size: 10.5px;
+  color: #6a5a45;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.cert-check {
+  color: #c0392b;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.nav-footer {
+  background: #f0ebe0;
+  border-top: 1px dashed #d4c5a9;
+  padding: 12px 28px 12px 68px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-item {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #8a7a60;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.nav-item:hover {
+  color: #c0392b;
+}
+
+.nav-item svg {
+  color: inherit;
+}
+
+.squiggle {
+  color: #c0392b;
+  font-size: 14px;
+  margin-right: 4px;
+  font-style: italic;
+}
+
+.edu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.edu-school {
+  font-size: 13px;
+  color: #2a2016;
+  font-style: italic;
+}
+
+.edu-detail {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: #7a6a55;
+  margin-top: 2px;
+}
+
+.edu-gpa {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: #c0392b;
+  font-weight: 500;
+}
+
+.about-note {
+  font-family: 'Courier New', monospace;
+  font-size: 10.5px;
+  color: #6a5a45;
+  line-height: 1.7;
+  max-width: 480px;
+}

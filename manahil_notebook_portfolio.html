@@ -1,0 +1,544 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .page-wrap {
+    background: #faf7f0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    font-family: Georgia, 'Times New Roman', serif;
+    border-left: 4px solid #d4c5a9;
+  }
+
+  .ruled-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .margin-line {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 52px;
+    width: 1px;
+    background: #f0bfbf;
+    opacity: 0.7;
+  }
+
+  .h-line {
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: #ddd8cc;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    padding: 20px 28px 28px 68px;
+  }
+
+  .section { margin-bottom: 28px; }
+
+  .hero-eyebrow {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #b5a08a;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .hero-name {
+    font-size: 34px;
+    font-style: italic;
+    color: #2a2016;
+    line-height: 1.1;
+    margin-bottom: 2px;
+  }
+
+  .hero-name span {
+    color: #c0392b;
+  }
+
+  .hero-underline {
+    width: 56px;
+    height: 2px;
+    background: #c0392b;
+    margin: 10px 0 10px;
+    border-radius: 1px;
+  }
+
+  .hero-bio {
+    font-family: 'Courier New', monospace;
+    font-size: 11.5px;
+    color: #5a4f3f;
+    line-height: 1.75;
+    max-width: 430px;
+  }
+
+  .hero-bio .ink { color: #c0392b; font-style: italic; }
+
+  .doodle-stars {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    color: #e0b84a;
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: right;
+    font-family: Georgia, serif;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 12px;
+  }
+
+  .contact-chip {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #7a6a55;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 1px dashed #c0b090;
+    padding-bottom: 1px;
+  }
+
+  .contact-chip i { font-size: 13px; color: #c0392b; }
+
+  .section-label {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #b5a08a;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #ddd8cc;
+  }
+
+  .skill-cluster { margin-bottom: 10px; }
+  .skill-cluster-label {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #8b7355;
+    margin-bottom: 5px;
+    font-style: italic;
+  }
+
+  .skill-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+
+  .pill {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    padding: 3px 9px;
+    border-radius: 2px;
+    border: 1px solid;
+  }
+  .pill-red   { border-color: #e07070; color: #7a2020; background: #fdf0f0; }
+  .pill-blue  { border-color: #7090c0; color: #1a3560; background: #f0f4fc; }
+  .pill-green { border-color: #70a870; color: #1a4a1a; background: #f0f8f0; }
+  .pill-amber { border-color: #c0a040; color: #5a3a00; background: #fdf8e8; }
+
+  .exp-item {
+    margin-bottom: 16px;
+    padding-left: 14px;
+    border-left: 2px solid #e8d8c0;
+    position: relative;
+  }
+
+  .exp-dot {
+    position: absolute;
+    left: -5px; top: 4px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #c0392b;
+    border: 1.5px solid #faf7f0;
+  }
+
+  .exp-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #2a2016;
+    margin-bottom: 1px;
+  }
+
+  .exp-company {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #c0392b;
+    margin-bottom: 4px;
+  }
+
+  .exp-desc {
+    font-family: 'Courier New', monospace;
+    font-size: 10.5px;
+    color: #6a5a45;
+    line-height: 1.65;
+  }
+
+  .exp-desc .stat {
+    color: #c0392b;
+    font-style: italic;
+  }
+
+  .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  .proj-card {
+    background: #fff;
+    border: 1px solid #e0d8cc;
+    border-radius: 3px;
+    padding: 12px 13px;
+    position: relative;
+    transition: border-color 0.15s;
+    cursor: default;
+  }
+
+  .proj-card:hover { border-color: #c0392b; }
+
+  .proj-num {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    color: #c0a890;
+    margin-bottom: 4px;
+  }
+
+  .proj-name {
+    font-size: 13px;
+    font-style: italic;
+    color: #2a2016;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+
+  .proj-desc {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #7a6a55;
+    line-height: 1.6;
+    margin-bottom: 7px;
+  }
+
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+  .proj-tag {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    padding: 1px 6px;
+    background: #f5f0e8;
+    color: #8a7a60;
+    border: 1px solid #e0d8cc;
+    border-radius: 2px;
+  }
+
+  .proj-card .corner-star {
+    position: absolute;
+    top: 8px; right: 10px;
+    color: #e0b84a;
+    font-size: 11px;
+    font-family: Georgia, serif;
+  }
+
+  .cert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .cert-item {
+    font-family: 'Courier New', monospace;
+    font-size: 10.5px;
+    color: #6a5a45;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .cert-check { color: #c0392b; font-size: 12px; margin-top: 1px; }
+
+  .nav-footer {
+    background: #f0ebe0;
+    border-top: 1px dashed #d4c5a9;
+    padding: 12px 28px 12px 68px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .nav-item {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #8a7a60;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s;
+    border: none; background: none; padding: 0;
+  }
+
+  .nav-item:hover { color: #c0392b; }
+  .nav-item i { font-size: 13px; }
+
+  .margin-note {
+    position: absolute;
+    left: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    color: #c0b090;
+    writing-mode: horizontal-tb;
+    transform: rotate(-90deg);
+    transform-origin: left center;
+    white-space: nowrap;
+  }
+
+  .squiggle { color: #c0392b; font-size: 14px; margin-right: 4px; font-style: italic; }
+
+  .edu-row {
+    display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 4px;
+  }
+  .edu-school { font-size: 13px; color: #2a2016; font-style: italic; }
+  .edu-detail { font-family: 'Courier New', monospace; font-size: 10px; color: #7a6a55; margin-top: 2px; }
+  .edu-gpa { font-family: 'Courier New', monospace; font-size: 10px; color: #c0392b; font-weight: 500; }
+</style>
+
+<h2 class="sr-only">Notebook-style portfolio for Manahil Iqbal, AI Engineer</h2>
+
+<div class="page-wrap">
+
+  <div class="ruled-bg">
+    <div class="margin-line"></div>
+    <div class="h-line" style="top:44px"></div>
+    <div class="h-line" style="top:68px"></div>
+    <div class="h-line" style="top:92px"></div>
+    <div class="h-line" style="top:116px"></div>
+    <div class="h-line" style="top:140px"></div>
+    <div class="h-line" style="top:164px"></div>
+    <div class="h-line" style="top:188px"></div>
+    <div class="h-line" style="top:212px"></div>
+    <div class="h-line" style="top:236px"></div>
+    <div class="h-line" style="top:260px"></div>
+    <div class="h-line" style="top:284px"></div>
+    <div class="h-line" style="top:308px"></div>
+    <div class="h-line" style="top:332px"></div>
+    <div class="h-line" style="top:356px"></div>
+    <div class="h-line" style="top:380px"></div>
+    <div class="h-line" style="top:404px"></div>
+    <div class="h-line" style="top:428px"></div>
+    <div class="h-line" style="top:452px"></div>
+    <div class="h-line" style="top:476px"></div>
+    <div class="h-line" style="top:500px"></div>
+    <div class="h-line" style="top:524px"></div>
+    <div class="h-line" style="top:548px"></div>
+    <div class="h-line" style="top:572px"></div>
+    <div class="h-line" style="top:596px"></div>
+    <div class="h-line" style="top:620px"></div>
+    <div class="h-line" style="top:644px"></div>
+    <div class="h-line" style="top:668px"></div>
+    <div class="h-line" style="top:692px"></div>
+    <div class="h-line" style="top:716px"></div>
+    <div class="h-line" style="top:740px"></div>
+    <div class="h-line" style="top:764px"></div>
+    <div class="h-line" style="top:788px"></div>
+    <div class="h-line" style="top:812px"></div>
+    <div class="h-line" style="top:836px"></div>
+    <div class="h-line" style="top:860px"></div>
+    <div class="h-line" style="top:884px"></div>
+    <div class="h-line" style="top:908px"></div>
+    <div class="h-line" style="top:932px"></div>
+    <div class="h-line" style="top:956px"></div>
+  </div>
+
+  <div class="content">
+
+    <div class="section" style="position:relative;">
+      <div class="doodle-stars">
+        * &nbsp; *<br>
+        &nbsp; * *<br>
+        * &nbsp; &nbsp;
+      </div>
+
+      <div class="hero-eyebrow">hello, world :)</div>
+      <div class="hero-name">Manahil <span>Iqbal.</span></div>
+      <div class="hero-underline"></div>
+      <div class="hero-bio">
+        AI Engineer building things that actually work —
+        <span class="ink">RAG pipelines, LLM integrations,</span> agentic workflows,
+        and full-stack backends. Currently at PureLogics, Lahore.
+        3.96 GPA. Chronic over-achiever. Open to freelance.
+      </div>
+
+      <div class="contact-row">
+        <span class="contact-chip"><i class="ti ti-mail" aria-hidden="true"></i>manahiliqbal0511@gmail.com</span>
+        <span class="contact-chip"><i class="ti ti-brand-linkedin" aria-hidden="true"></i>manahil-iqbal</span>
+        <span class="contact-chip"><i class="ti ti-brand-github" aria-hidden="true"></i>manahiliqbal</span>
+        <span class="contact-chip"><i class="ti ti-map-pin" aria-hidden="true"></i>Lahore, PK</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">skills &amp; tools</div>
+      <div class="skill-cluster">
+        <div class="skill-cluster-label"><span class="squiggle">~</span> AI / ML</div>
+        <div class="skill-pills">
+          <span class="pill pill-red">LangChain</span>
+          <span class="pill pill-red">RAG pipelines</span>
+          <span class="pill pill-red">OpenAI API</span>
+          <span class="pill pill-red">Gemini API</span>
+          <span class="pill pill-red">Chroma DB</span>
+          <span class="pill pill-red">Qdrant</span>
+          <span class="pill pill-red">FAISS</span>
+          <span class="pill pill-red">Hugging Face</span>
+          <span class="pill pill-red">TensorFlow</span>
+        </div>
+      </div>
+      <div class="skill-cluster">
+        <div class="skill-cluster-label"><span class="squiggle">~</span> backend</div>
+        <div class="skill-pills">
+          <span class="pill pill-blue">Python</span>
+          <span class="pill pill-blue">Django</span>
+          <span class="pill pill-blue">Flask</span>
+          <span class="pill pill-blue">REST APIs</span>
+          <span class="pill pill-blue">PostgreSQL</span>
+          <span class="pill pill-blue">MongoDB</span>
+        </div>
+      </div>
+      <div class="skill-cluster">
+        <div class="skill-cluster-label"><span class="squiggle">~</span> frontend &amp; tools</div>
+        <div class="skill-pills">
+          <span class="pill pill-green">React</span>
+          <span class="pill pill-green">Tailwind CSS</span>
+          <span class="pill pill-amber">Git</span>
+          <span class="pill pill-amber">Postman</span>
+          <span class="pill pill-amber">Jupyter</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">experience</div>
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-title">AI Engineer — PureLogics</div>
+        <div class="exp-company">Mar 2025 – Present &nbsp;·&nbsp; Lahore</div>
+        <div class="exp-desc">
+          Lead dev of an AI-powered QA automation platform (TMS) — LLM-based test case generation
+          cutting manual QA effort by <span class="stat">60%</span>. Built RAG pipelines and agentic workflows
+          with LangChain, OpenAI, Chroma DB &amp; Django. Designed RESTful APIs connecting AI modules to frontend.
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-title">Software Engineer Intern — IREG-IT</div>
+        <div class="exp-company">Jul 2024 – Aug 2024 &nbsp;·&nbsp; Lahore</div>
+        <div class="exp-desc">
+          Built a Google Sheets Mail Merge add-on (Apps Script + PostgreSQL) that reduced
+          manual email scheduling by <span class="stat">70%</span>. Conducted code reviews across 3+ projects.
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-title">Teaching Assistant — PUCIT</div>
+        <div class="exp-company">Sep 2023 – Jun 2025 &nbsp;·&nbsp; Lahore</div>
+        <div class="exp-desc">
+          Mentored <span class="stat">300+</span> students across DLD, Computer Vision, Calculus, and OOP labs.
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">projects</div>
+      <div class="proj-grid">
+
+        <div class="proj-card">
+          <div class="corner-star">*</div>
+          <div class="proj-num">01 — FYP</div>
+          <div class="proj-name">Eunoia</div>
+          <div class="proj-desc">AI mental health platform with RAG chatbot — <span style="color:#c0392b;">90% response accuracy</span>. Gemini API, Chroma DB, SBERT, React &amp; Flask.</div>
+          <div class="proj-tags">
+            <span class="proj-tag">RAG</span><span class="proj-tag">Gemini</span><span class="proj-tag">SBERT</span><span class="proj-tag">React</span>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-num">02</div>
+          <div class="proj-name">TestCraft AI</div>
+          <div class="proj-desc">Analyzes software requirements and auto-generates test cases. Reduced manual QA writing by <span style="color:#c0392b;">40%</span>. OpenAI, Flask, Qdrant.</div>
+          <div class="proj-tags">
+            <span class="proj-tag">OpenAI</span><span class="proj-tag">Qdrant</span><span class="proj-tag">Flask</span>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-num">03</div>
+          <div class="proj-name">Study Sage</div>
+          <div class="proj-desc">Chat with your PDFs, get summaries and flashcards. Context-aware Q&amp;A cuts study time by <span style="color:#c0392b;">35%</span>. LangChain, FAISS, Gemini.</div>
+          <div class="proj-tags">
+            <span class="proj-tag">LangChain</span><span class="proj-tag">FAISS</span><span class="proj-tag">Gemini</span>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="corner-star">*</div>
+          <div class="proj-num">04 — @ work</div>
+          <div class="proj-name">TMS Platform</div>
+          <div class="proj-desc">AI-powered QA automation suite. LLM requirement analysis + test generation. Deployed at PureLogics, cutting QA effort by <span style="color:#c0392b;">60%</span>.</div>
+          <div class="proj-tags">
+            <span class="proj-tag">Agentic</span><span class="proj-tag">LangChain</span><span class="proj-tag">Django</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">education</div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-school">Punjab University College of Information Technology</div>
+          <div class="edu-detail">BS Computer Science &nbsp;·&nbsp; Dec 2021 – Jun 2025</div>
+        </div>
+        <div class="edu-gpa">3.96 / 4.0</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">certifications</div>
+      <div class="cert-list">
+        <div class="cert-item"><i class="ti ti-check cert-check" aria-hidden="true"></i>LangChain for LLM App Development — DeepLearning.AI</div>
+        <div class="cert-item"><i class="ti ti-check cert-check" aria-hidden="true"></i>Multimodal RAG using Vertex AI — Google Cloud</div>
+        <div class="cert-item"><i class="ti ti-check cert-check" aria-hidden="true"></i>Building AI Agents with Google ADK — DataCamp</div>
+        <div class="cert-item"><i class="ti ti-check cert-check" aria-hidden="true"></i>Advanced RAG Applications — LinkedIn Learning</div>
+        <div class="cert-item"><i class="ti ti-check cert-check" aria-hidden="true"></i>AI Agents using RAG and LangChain — IBM</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="nav-footer">
+    <button class="nav-item" onclick="sendPrompt('Build out a full projects page for the notebook portfolio')"><i class="ti ti-folder" aria-hidden="true"></i> all projects</button>
+    <button class="nav-item" onclick="sendPrompt('Write a whimsical about me page for the notebook portfolio')"><i class="ti ti-user" aria-hidden="true"></i> about me</button>
+    <button class="nav-item" onclick="sendPrompt('Build a contact page for the notebook portfolio')"><i class="ti ti-mail" aria-hidden="true"></i> say hello</button>
+    <button class="nav-item" onclick="sendPrompt('Turn this portfolio mockup into a real HTML file I can download')"><i class="ti ti-download" aria-hidden="true"></i> export as HTML</button>
+  </div>
+
+</div>
