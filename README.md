@@ -20,6 +20,18 @@ npm run preview
 
 The static site output is in `dist/`.
 
+## Deploy on Vercel
+
+1. Push this repo to GitHub and import it in [Vercel](https://vercel.com).
+2. **Root Directory** should be the folder that contains `package.json` (repo root if the app is at the top level).
+3. Vercel should auto-detect **Vite**. If not, set:
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+   - **Install Command:** `npm install`
+4. This repo includes `vercel.json` with those settings — redeploy after pulling the latest commit.
+
+`dist/` is gitignored on purpose; Vercel creates it during the build. You do not need to commit `dist/`.
+
 ## Project structure
 
 - `src/components/Portfolio.jsx` — full-page layout and sections
