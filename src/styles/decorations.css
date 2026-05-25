@@ -1,0 +1,348 @@
+/* Notebook decorations — stars, pins, stickers */
+
+.notebook-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.deco-item {
+  position: absolute;
+  transform: rotate(var(--deco-rotate, 0deg));
+  animation-delay: var(--deco-delay, 0s);
+  filter: drop-shadow(0 1px 2px rgba(42, 32, 22, 0.12));
+}
+
+/* Left-side items can sit in a wider band (margin → gutter) */
+.deco-item--side-left {
+  max-width: 140px;
+}
+
+.deco-item--side-left .deco-sticker {
+  font-size: 10px;
+  padding: 5px 10px;
+}
+
+.deco-item--side-right {
+  max-width: 120px;
+}
+
+.deco-item--edge-left,
+.deco-item--edge-right {
+  max-width: none;
+}
+
+.deco-item--scatter {
+  opacity: 0.75;
+}
+
+.deco-item--scatter .deco-star {
+  filter: drop-shadow(0 0 1px rgba(224, 184, 74, 0.4));
+}
+
+.deco-item--gutter {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .deco-item--gutter {
+    display: block;
+  }
+}
+
+.deco-squiggle {
+  display: block;
+  opacity: 0.65;
+}
+
+.deco-star {
+  display: block;
+}
+
+/* Stickers */
+.deco-sticker {
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 6px 11px;
+  border-radius: 2px;
+  border: 1.5px solid;
+  white-space: nowrap;
+  box-shadow: 1px 2px 0 rgba(42, 32, 22, 0.08);
+}
+
+.deco-sticker--peach {
+  background: #fde8d8;
+  border-color: #e8a87c;
+  color: #8b4513;
+}
+
+.deco-sticker--mint {
+  background: #e0f4e8;
+  border-color: #7ab896;
+  color: #1a4a32;
+}
+
+.deco-sticker--coral {
+  background: #fde0dc;
+  border-color: var(--accent-pill-border);
+  color: var(--accent-pill-text);
+}
+
+.deco-sticker--sky {
+  background: #e4eef8;
+  border-color: #7090c0;
+  color: #1a3560;
+}
+
+.deco-sticker--lavender {
+  background: #ebe6f5;
+  border-color: #9b8ec4;
+  color: #4a3a6a;
+}
+
+.deco-sticker--gold {
+  background: #fdf6d8;
+  border-color: #e0b84a;
+  color: #5a3a00;
+}
+
+.deco-sticker--cream {
+  background: #faf7f0;
+  border-color: #d4c5a9;
+  color: #6a5a45;
+}
+
+/* Animations */
+@keyframes deco-twinkle {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: rotate(var(--deco-rotate, 0deg)) scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(var(--deco-rotate, 0deg)) scale(1.08);
+  }
+}
+
+@keyframes deco-float {
+  0%,
+  100% {
+    transform: rotate(var(--deco-rotate, 0deg)) translateY(0);
+  }
+  50% {
+    transform: rotate(var(--deco-rotate, 0deg)) translateY(-10px);
+  }
+}
+
+@keyframes deco-wiggle {
+  0%,
+  100% {
+    transform: rotate(calc(var(--deco-rotate, 0deg) - 5deg));
+  }
+  50% {
+    transform: rotate(calc(var(--deco-rotate, 0deg) + 5deg));
+  }
+}
+
+@keyframes deco-pop-in {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--deco-rotate, 0deg)) scale(0.6);
+  }
+  70% {
+    transform: rotate(var(--deco-rotate, 0deg)) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(var(--deco-rotate, 0deg)) scale(1);
+  }
+}
+
+.deco-anim-twinkle {
+  animation: deco-twinkle 3s ease-in-out infinite;
+  animation-delay: var(--deco-delay, 0s);
+}
+
+.deco-anim-float {
+  animation: deco-float 5s ease-in-out infinite;
+  animation-delay: var(--deco-delay, 0s);
+}
+
+.deco-anim-wiggle {
+  animation: deco-wiggle 2.5s ease-in-out infinite;
+  animation-delay: var(--deco-delay, 0s);
+}
+
+.deco-item--sticker {
+  animation-name: deco-pop-in, deco-float;
+  animation-duration: 0.6s, 6s;
+  animation-timing-function: ease-out, ease-in-out;
+  animation-fill-mode: backwards, none;
+  animation-iteration-count: 1, infinite;
+  animation-delay: var(--deco-delay, 0s), calc(var(--deco-delay, 0s) + 0.6s);
+}
+
+/* Floating corner cluster (hero doodle upgrade) */
+.doodle-cluster {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #e0b84a;
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: right;
+  font-family: Georgia, serif;
+  pointer-events: none;
+}
+
+.doodle-cluster--left {
+  right: auto;
+  left: 9%;
+  text-align: left;
+  top: 100px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: #e0b84a;
+  opacity: 0.9;
+}
+
+.doodle-cluster--mid {
+  position: absolute;
+  left: 18%;
+  top: 48%;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--accent);
+  opacity: 0.35;
+  pointer-events: none;
+  letter-spacing: 0.15em;
+}
+
+@media (min-width: 900px) {
+  .doodle-cluster--mid {
+    left: 20%;
+    opacity: 0.45;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 899px) {
+  .doodle-cluster--left {
+    left: 6%;
+  }
+}
+
+@media (max-width: 900px) {
+  .doodle-cluster--mid {
+    display: none;
+  }
+}
+
+.doodle-cluster .deco-char {
+  display: inline-block;
+  animation: deco-twinkle 2.5s ease-in-out infinite;
+}
+
+.doodle-cluster .deco-char:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.doodle-cluster .deco-char:nth-child(3) {
+  animation-delay: 0.8s;
+}
+.doodle-cluster .deco-char:nth-child(4) {
+  animation-delay: 1.2s;
+}
+
+/* Washi tape strips on section corners */
+.deco-tape {
+  position: absolute;
+  width: 72px;
+  height: 22px;
+  opacity: 0.55;
+  transform: rotate(var(--tape-rotate, -35deg));
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+.deco-tape--rose {
+  background: linear-gradient(
+    90deg,
+    rgba(240, 191, 191, 0.7),
+    rgba(224, 184, 74, 0.35)
+  );
+}
+
+.deco-tape--sage {
+  background: linear-gradient(90deg, rgba(122, 184, 150, 0.45), rgba(224, 184, 74, 0.3));
+}
+
+.panel:nth-child(odd) .notebook-surface::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  right: 24px;
+  width: 56px;
+  height: 18px;
+  background: linear-gradient(90deg, rgba(240, 191, 191, 0.5), rgba(224, 184, 74, 0.25));
+  transform: rotate(32deg);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Left washi tape on even sections (on decor layer — keeps ruled lines intact) */
+.panel:nth-child(even) .notebook-decor::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 8%;
+  width: 52px;
+  height: 18px;
+  background: linear-gradient(90deg, rgba(122, 184, 150, 0.4), rgba(224, 184, 74, 0.3));
+  transform: rotate(-28deg);
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+@media (max-width: 900px) {
+  .notebook-decor .deco-item {
+    transform: rotate(var(--deco-rotate, 0deg)) scale(0.85);
+  }
+
+  .deco-item--scatter,
+  .deco-item--gutter {
+    display: none;
+  }
+
+  .deco-item--squiggle {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .notebook-decor {
+    display: none;
+  }
+
+  .doodle-cluster {
+    display: block;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deco-anim-twinkle,
+  .deco-anim-float,
+  .deco-anim-wiggle,
+  .deco-item--sticker,
+  .doodle-cluster .deco-char {
+    animation: none;
+  }
+}

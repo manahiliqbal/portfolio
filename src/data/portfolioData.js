@@ -1,17 +1,84 @@
 export const hero = {
-  eyebrow: 'hello, world :)',
+  eyebrow: 'Portfolio',
+  role: 'AI Engineer',
   name: 'Manahil',
-  nameAccent: 'Iqbal.',
+  nameLast: 'Iqbal',
+  tagline:
+    'I design and ship production AI systems — RAG pipelines, LLM integrations, and agentic workflows with reliable backends.',
+  bio: 'Currently an AI Engineer at PureLogics in Lahore. B.S. Computer Science from PUCIT (GPA 3.96/4.0). Open to freelance and full-time opportunities.',
+  highlights: [
+    { label: 'Education', value: 'BS CS · PUCIT · 3.96 GPA' },
+    { label: 'Focus', value: 'RAG & agentic AI' },
+    { label: 'Availability', value: 'Freelance & full-time' },
+    { label: 'Location', value: 'Lahore, Pakistan' },
+  ],
   contacts: [
-    { icon: 'mail', label: 'manahiliqbal0511@gmail.com', href: 'mailto:manahiliqbal0511@gmail.com' },
+    {
+      icon: 'mail',
+      label: 'Email',
+      value: 'manahiliqbal0511@gmail.com',
+      href: 'mailto:manahiliqbal0511@gmail.com',
+    },
     {
       icon: 'linkedin',
-      label: 'manahil-iqbal',
+      label: 'LinkedIn',
+      value: 'linkedin.com/in/manahil-iqbal',
       href: 'https://www.linkedin.com/in/manahil-iqbal',
     },
-    { icon: 'github', label: 'manahiliqbal', href: 'https://github.com/manahiliqbal' },
-    { icon: 'map', label: 'Lahore, PK' },
+    {
+      icon: 'github',
+      label: 'GitHub',
+      value: 'github.com/manahiliqbal',
+      href: 'https://github.com/manahiliqbal',
+    },
+    { icon: 'map', label: 'Location', value: 'Lahore, Pakistan' },
   ],
+};
+
+export const about = {
+  title: 'About',
+  subtitle: 'Background, approach, and what I work on today.',
+  paragraphs: [
+    'I am an AI engineer focused on systems that work in production — retrieval pipelines, agent workflows, and APIs that teams can maintain and extend.',
+    'At PureLogics I lead development on an AI-powered test management platform. I have also interned at IREG-IT, served as a teaching assistant at PUCIT for 300+ students, and built projects that reduced manual work by measurable margins.',
+  ],
+  focus: [
+    'Retrieval-augmented generation (RAG)',
+    'Agentic & multi-step LLM workflows',
+    'Python backends (Django, Flask)',
+    'LLM integration in product features',
+  ],
+};
+
+export const navSections = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'education', label: 'Education' },
+  { id: 'contact', label: 'Contact' },
+];
+
+export const sectionCopy = {
+  skills: {
+    subtitle: 'Technologies I use regularly across AI, backend, and frontend work.',
+  },
+  experience: {
+    subtitle: 'Professional roles and impact.',
+  },
+  projects: {
+    subtitle: 'Selected academic, personal, and production projects.',
+  },
+  education: {
+    subtitle: 'Degree and professional certifications.',
+  },
+  contact: {
+    headline: 'Get in touch',
+    subtext:
+      'For freelance work, collaboration, or full-time roles in AI engineering — email is the best way to reach me.',
+    email: 'manahiliqbal0511@gmail.com',
+  },
 };
 
 export const skillClusters = [
@@ -31,12 +98,12 @@ export const skillClusters = [
     ],
   },
   {
-    label: 'backend',
+    label: 'Backend',
     variant: 'blue',
     skills: ['Python', 'Django', 'Flask', 'REST APIs', 'PostgreSQL', 'MongoDB'],
   },
   {
-    label: 'frontend & tools',
+    label: 'Frontend & tools',
     variant: 'green',
     skills: ['React', 'Tailwind CSS'],
     extra: { variant: 'amber', skills: ['Git', 'Postman', 'Jupyter'] },
@@ -45,90 +112,93 @@ export const skillClusters = [
 
 export const experience = [
   {
-    title: 'AI Engineer — PureLogics',
-    company: 'Mar 2025 – Present · Lahore',
+    title: 'AI Engineer',
+    org: 'PureLogics',
+    period: 'Mar 2025 – Present',
+    location: 'Lahore, Pakistan',
     description: [
-      'Lead dev of an AI-powered QA automation platform (TMS) — LLM-based test case generation cutting manual QA effort by ',
+      'Lead developer on an AI-powered QA automation platform (TMS). LLM-based test case generation reduced manual QA effort by ',
       { stat: '60%' },
-      '. Built RAG pipelines and agentic workflows with LangChain, OpenAI, Chroma DB & Django. Designed RESTful APIs connecting AI modules to frontend.',
+      '. Built RAG pipelines and agentic workflows with LangChain, OpenAI, Chroma DB, and Django; designed REST APIs connecting AI modules to the frontend.',
     ],
   },
   {
-    title: 'Software Engineer Intern — IREG-IT',
-    company: 'Jul 2024 – Aug 2024 · Lahore',
+    title: 'Software Engineer Intern',
+    org: 'IREG-IT',
+    period: 'Jul 2024 – Aug 2024',
+    location: 'Lahore, Pakistan',
     description: [
-      'Built a Google Sheets Mail Merge add-on (Apps Script + PostgreSQL) that reduced manual email scheduling by ',
+      'Developed a Google Sheets mail-merge add-on (Apps Script + PostgreSQL) that reduced manual email scheduling by ',
       { stat: '70%' },
-      '. Conducted code reviews across 3+ projects.',
+      '. Participated in code reviews across multiple projects.',
     ],
   },
   {
-    title: 'Teaching Assistant — PUCIT',
-    company: 'Sep 2023 – Jun 2025 · Lahore',
+    title: 'Teaching Assistant',
+    org: 'PUCIT',
+    period: 'Sep 2023 – Jun 2025',
+    location: 'Lahore, Pakistan',
     description: [
       'Mentored ',
       { stat: '300+' },
-      ' students across DLD, Computer Vision, Calculus, and OOP labs.',
+      ' students in labs for Digital Logic Design, Computer Vision, Calculus, and Object-Oriented Programming.',
     ],
   },
 ];
 
 export const projects = [
   {
-    num: '01 — FYP',
+    num: '01',
+    badge: 'Final year project',
     name: 'Eunoia',
-    descBefore: 'AI mental health platform with RAG chatbot — ',
+    descBefore: 'AI mental health platform with a RAG-based chatbot, achieving ',
     highlight: '90% response accuracy',
-    descAfter: '. Gemini API, Chroma DB, SBERT, React & Flask.',
+    descAfter: ' on evaluation sets. Built with Gemini API, Chroma DB, SBERT, React, and Flask.',
     tags: ['RAG', 'Gemini', 'SBERT', 'React'],
-    starred: true,
+    featured: true,
   },
   {
     num: '02',
     name: 'TestCraft AI',
     descBefore:
-      'Analyzes software requirements and auto-generates test cases. Reduced manual QA writing by ',
+      'Parses software requirements and auto-generates test cases, reducing manual QA writing by ',
     highlight: '40%',
-    descAfter: '. OpenAI, Flask, Qdrant.',
+    descAfter: '. Stack: OpenAI, Flask, Qdrant.',
     tags: ['OpenAI', 'Qdrant', 'Flask'],
   },
   {
     num: '03',
     name: 'Study Sage',
     descBefore:
-      'Chat with your PDFs, get summaries and flashcards. Context-aware Q&A cuts study time by ',
+      'PDF chat, summaries, and flashcards with context-aware Q&A, cutting study time by ',
     highlight: '35%',
-    descAfter: '. LangChain, FAISS, Gemini.',
+    descAfter: '. Built with LangChain, FAISS, and Gemini.',
     tags: ['LangChain', 'FAISS', 'Gemini'],
   },
   {
-    num: '04 — @ work',
+    num: '04',
+    badge: 'Production',
     name: 'TMS Platform',
     descBefore:
-      'AI-powered QA automation suite. LLM requirement analysis + test generation. Deployed at PureLogics, cutting QA effort by ',
+      'AI-powered QA automation at PureLogics: requirement analysis and test generation, reducing QA effort by ',
     highlight: '60%',
-    descAfter: '.',
+    descAfter: '. LangChain, Django, and agentic workflows.',
     tags: ['Agentic', 'LangChain', 'Django'],
-    starred: true,
+    featured: true,
   },
 ];
 
 export const education = {
-  school: 'Punjab University College of Information Technology',
-  detail: 'BS Computer Science · Dec 2021 – Jun 2025',
+  school: 'Punjab University College of Information Technology (PUCIT)',
+  degree: 'Bachelor of Science in Computer Science',
+  period: 'December 2021 – June 2025',
   gpa: '3.96 / 4.0',
 };
 
 export const certifications = [
-  'LangChain for LLM App Development — DeepLearning.AI',
-  'Multimodal RAG using Vertex AI — Google Cloud',
-  'Building AI Agents with Google ADK — DataCamp',
-  'Advanced RAG Applications — LinkedIn Learning',
-  'AI Agents using RAG and LangChain — IBM',
-];
-
-export const navItems = [
-  { id: 'projects', icon: 'folder', label: 'all projects' },
-  { id: 'about', icon: 'user', label: 'about me' },
-  { id: 'contact', icon: 'mail', label: 'say hello' },
+  { course: 'LangChain for LLM Application Development', provider: 'DeepLearning.AI' },
+  { course: 'Multimodal RAG using Vertex AI', provider: 'Google Cloud' },
+  { course: 'Building AI Agents with Google ADK', provider: 'DataCamp' },
+  { course: 'Advanced RAG Applications', provider: 'LinkedIn Learning' },
+  { course: 'AI Agents using RAG and LangChain', provider: 'IBM' },
 ];

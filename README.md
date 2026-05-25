@@ -22,7 +22,8 @@ The static site output is in `dist/`.
 
 ## Project structure
 
-- `src/components/NotebookPortfolio.jsx` — main layout and sections
-- `src/data/portfolioData.js` — content (skills, experience, projects, etc.)
-- `src/styles/NotebookPortfolio.css` — notebook visual styles
+- `src/components/Portfolio.jsx` — full-page layout and sections
+- `src/components/SiteNav.jsx` — sticky nav with scroll spy
+- `src/data/portfolioData.js` — all portfolio content
+- `src/styles/portfolio.css` — notebook-themed styles
 - `manahil_notebook_portfolio.html` — original HTML reference

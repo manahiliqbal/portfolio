@@ -1,5 +1,5 @@
-import NotebookPortfolio from './components/NotebookPortfolio';
+import Portfolio from './components/Portfolio';
 
 export default function App() {
-  return <NotebookPortfolio />;
+  return <Portfolio />;
 }
