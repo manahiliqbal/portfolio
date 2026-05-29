@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { navSections } from '../data/portfolioData';
 
 function scrollTo(id) {
@@ -10,6 +10,11 @@ function scrollTo(id) {
 export default function SiteNav({ activeId }) {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    document.body.classList.toggle('nav-open', open);
+    return () => document.body.classList.remove('nav-open');
+  }, [open]);
+
   const handleClick = (id) => {
     setOpen(false);
     scrollTo(id);
@@ -17,6 +22,14 @@ export default function SiteNav({ activeId }) {
 
   return (
     <header className="site-nav">
+      {open && (
+        <button
+          type="button"
+          className="nav-backdrop"
+          aria-label="Close menu"
+          onClick={() => setOpen(false)}
+        />
+      )}
       <div className="site-nav-inner">
         <button
           type="button"

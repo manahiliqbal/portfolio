@@ -1,3 +1,5 @@
+import { useMediaQuery } from '../hooks/useMediaQuery';
+import { decorForViewport } from '../utils/mobileDecors';
 import { buildScatter } from '../utils/scatterDecor';
 import '../styles/decorations.css';
 
@@ -116,8 +118,15 @@ function DecorItem({ item }) {
 }
 
 export default function NotebookDecor({ items = [], scatter = 'normal' }) {
-  const scatterItems = scatter ? buildScatter(scatter) : [];
-  const allItems = [...items, ...scatterItems];
+  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isTablet = useMediaQuery('(max-width: 960px)');
+  const { items: viewportItems, scatter: viewportScatter } = decorForViewport(items, scatter, {
+    isMobile,
+    isTablet,
+  });
+
+  const scatterItems = viewportScatter ? buildScatter(viewportScatter) : [];
+  const allItems = [...viewportItems, ...scatterItems];
 
   if (!allItems.length) return null;
 

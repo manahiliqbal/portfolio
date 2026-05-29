@@ -5,6 +5,7 @@ import {
   education,
   experience,
   hero,
+  human,
   navSections,
   projects,
   sectionCopy,
@@ -205,10 +206,51 @@ export default function Portfolio() {
           </NotebookSurface>
         </section>
 
-        <section id="skills" className="panel">
-          <NotebookSurface decorKey="skills">
+        <section id="life" className="panel">
+          <NotebookSurface decorKey="life">
             <SectionHeading
               num="02"
+              title={human.title}
+              subtitle={sectionCopy.life.subtitle}
+            />
+            <div className="human-layout">
+              <p className="human-intro">{human.intro}</p>
+
+              <div className="human-grid">
+                <div className="human-current">
+                  <h3 className="human-card-title">Right now</h3>
+                  <ul className="human-current-list">
+                    {human.currently.map((item) => (
+                      <li key={item.label}>
+                        <span className="human-current-emoji" aria-hidden="true">
+                          {item.emoji}
+                        </span>
+                        <span>
+                          <span className="human-current-label">{item.label}</span>
+                          <span className="human-current-value">{item.value}</span>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="human-loves">
+                  <h3 className="human-card-title">Also</h3>
+                  <ul className="human-loves-list">
+                    {human.loves.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </NotebookSurface>
+        </section>
+
+        <section id="skills" className="panel panel-alt">
+          <NotebookSurface decorKey="skills">
+            <SectionHeading
+              num="03"
               title="Skills & tools"
               subtitle={sectionCopy.skills.subtitle}
             />
@@ -234,10 +276,10 @@ export default function Portfolio() {
           </NotebookSurface>
         </section>
 
-        <section id="experience" className="panel panel-alt">
+        <section id="experience" className="panel">
           <NotebookSurface decorKey="experience">
             <SectionHeading
-              num="03"
+              num="04"
               title="Experience"
               subtitle={sectionCopy.experience.subtitle}
             />
@@ -261,10 +303,10 @@ export default function Portfolio() {
           </NotebookSurface>
         </section>
 
-        <section id="projects" className="panel">
+        <section id="projects" className="panel panel-alt">
           <NotebookSurface decorKey="projects">
             <SectionHeading
-              num="04"
+              num="05"
               title="Projects"
               subtitle={sectionCopy.projects.subtitle}
             />
@@ -284,6 +326,11 @@ export default function Portfolio() {
                     {project.badge && <span className="project-badge">{project.badge}</span>}
                   </div>
                   <h3 className="project-name">{project.name}</h3>
+                  {project.aside && (
+                    <p className="project-aside">
+                      <span className="project-aside-mark">~</span> {project.aside}
+                    </p>
+                  )}
                   <p className="project-desc">
                     {project.descBefore}
                     <span className="proj-highlight">{project.highlight}</span>
@@ -302,10 +349,10 @@ export default function Portfolio() {
           </NotebookSurface>
         </section>
 
-        <section id="education" className="panel panel-alt panel-compact">
+        <section id="education" className="panel panel-compact">
           <NotebookSurface decorKey="education">
             <SectionHeading
-              num="05"
+              num="06"
               title="Education & certifications"
               subtitle={sectionCopy.education.subtitle}
             />
@@ -340,7 +387,7 @@ export default function Portfolio() {
 
         <section id="contact" className="panel panel-contact">
           <NotebookSurface decorKey="contact">
-            <SectionHeading num="06" title="Contact" subtitle={sectionCopy.contact.subtext} />
+            <SectionHeading num="07" title="Contact" subtitle={sectionCopy.contact.subtext} />
             <div className="contact-panel">
               <h3 className="contact-headline">{sectionCopy.contact.headline}</h3>
               <a className="contact-email" href={`mailto:${sectionCopy.contact.email}`}>

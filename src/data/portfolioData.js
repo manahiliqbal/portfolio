@@ -1,11 +1,12 @@
 export const hero = {
-  eyebrow: 'Portfolio',
-  role: 'AI Engineer',
+  eyebrow: 'hello :) glad you’re here',
+  // role: 'AI Engineer',
   name: 'Manahil',
   nameLast: 'Iqbal',
   tagline:
-    'I design and ship production AI systems — RAG pipelines, LLM integrations, and agentic workflows with reliable backends.',
-  bio: 'Currently an AI Engineer at PureLogics in Lahore. B.S. Computer Science from PUCIT (GPA 3.96/4.0). Open to freelance and full-time opportunities.',
+    'I build RAG pipelines and agentic workflows',
+  bio:
+    'AI engineer at PureLogics in Lahore, PUCIT grad (3.96 GPA). I like shipping systems that work and people can actually use. Off the clock I’m quiet and thoughtful, a bit creative — usually with matcha or tea nearby.',
   highlights: [
     { label: 'Education', value: 'BS CS · PUCIT · 3.96 GPA' },
     { label: 'Focus', value: 'RAG & agentic AI' },
@@ -36,23 +37,41 @@ export const hero = {
 };
 
 export const about = {
-  title: 'About',
-  subtitle: 'Background, approach, and what I work on today.',
+  title: 'About me',
+  subtitle: 'What I work on and how I like to build.',
   paragraphs: [
-    'I am an AI engineer focused on systems that work in production — retrieval pipelines, agent workflows, and APIs that teams can maintain and extend.',
-    'At PureLogics I lead development on an AI-powered test management platform. I have also interned at IREG-IT, served as a teaching assistant at PUCIT for 300+ students, and built projects that reduced manual work by measurable margins.',
+    'I focus on AI systems that ship: retrieval pipelines, agent workflows, and backends that stay up. I care about making complex tools feel straightforward for the people using them.',
+    'I lead development on an AI-powered QA platform at PureLogics. Before that I interned at IREG-IT, TA’d 300+ students at PUCIT, and built projects where usability mattered as much as the metrics.',
   ],
   focus: [
-    'Retrieval-augmented generation (RAG)',
-    'Agentic & multi-step LLM workflows',
+    'RAG & vector search',
+    'Agentic LLM workflows',
     'Python backends (Django, Flask)',
-    'LLM integration in product features',
+    'LLM features that feel human-friendly',
+  ],
+};
+
+export const human = {
+  title: 'Off the clock',
+  subtitle: 'A bit of the person behind the work.',
+  intro:
+    'When I’m not in code, I’m usually painting, gaming, cooking, or listening to music — introverted by default, warmer once you’re in.',
+  currently: [
+    { emoji: '🍵', label: 'Drink of choice', value: 'Matcha — honey, vanilla' },
+    { emoji: '🎨', label: 'Hobbies', value: 'Art, gaming, music, crafting' },
+    { emoji: '☕', label: 'Also', value: 'Tea or coffee — non-negotiable most days' },
+  ],
+  loves: [
+    'Animated films (yes, I cry)',
+    'Sketching and co-op games',
+    'Trying new recipes without a strict plan',
   ],
 };
 
 export const navSections = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
+  { id: 'life', label: 'Life' },
   { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
@@ -62,21 +81,24 @@ export const navSections = [
 
 export const sectionCopy = {
   skills: {
-    subtitle: 'Technologies I use regularly across AI, backend, and frontend work.',
+    subtitle: 'Technologies I use regularly across AI and full-stack work.',
   },
   experience: {
-    subtitle: 'Professional roles and impact.',
+    subtitle: 'Roles where I built and shipped production systems.',
   },
   projects: {
-    subtitle: 'Selected academic, personal, and production projects.',
+    subtitle: 'Selected work from university and industry.',
+  },
+  life: {
+    subtitle: 'Hobbies and small details that don’t fit on a résumé.',
   },
   education: {
-    subtitle: 'Degree and professional certifications.',
+    subtitle: 'Degree and certifications.',
   },
   contact: {
     headline: 'Get in touch',
     subtext:
-      'For freelance work, collaboration, or full-time roles in AI engineering — email is the best way to reach me.',
+      'Open to roles, collaborations, and thoughtful conversations. Email is the fastest way to reach me.',
     email: 'manahiliqbal0511@gmail.com',
   },
 };
@@ -88,6 +110,7 @@ export const skillClusters = [
     skills: [
       'LangChain',
       'RAG pipelines',
+      'n8n',
       'OpenAI API',
       'Gemini API',
       'Chroma DB',
@@ -117,9 +140,9 @@ export const experience = [
     period: 'Mar 2025 – Present',
     location: 'Lahore, Pakistan',
     description: [
-      'Lead developer on an AI-powered QA automation platform (TMS). LLM-based test case generation reduced manual QA effort by ',
-      { stat: '60%' },
-      '. Built RAG pipelines and agentic workflows with LangChain, OpenAI, Chroma DB, and Django; designed REST APIs connecting AI modules to the frontend.',
+      'Lead development on an AI-powered QA platform (TMS): LLM test-case generation reduced manual QA effort by ',
+      { stat: '80%' },
+      '. Built RAG pipelines and agentic workflows with LangChain, Chroma, and Django.',
     ],
   },
   {
@@ -128,9 +151,9 @@ export const experience = [
     period: 'Jul 2024 – Aug 2024',
     location: 'Lahore, Pakistan',
     description: [
-      'Developed a Google Sheets mail-merge add-on (Apps Script + PostgreSQL) that reduced manual email scheduling by ',
+      'Developed a Google Sheets mail-merge add-on (Apps Script + PostgreSQL), cutting manual email scheduling by ',
       { stat: '70%' },
-      '. Participated in code reviews across multiple projects.',
+      '.',
     ],
   },
   {
@@ -141,7 +164,7 @@ export const experience = [
     description: [
       'Mentored ',
       { stat: '300+' },
-      ' students in labs for Digital Logic Design, Computer Vision, Calculus, and Object-Oriented Programming.',
+      ' students across DLD, Computer Vision, Calculus, and OOP labs.',
     ],
   },
 ];
@@ -151,38 +174,37 @@ export const projects = [
     num: '01',
     badge: 'Final year project',
     name: 'Eunoia',
-    descBefore: 'AI mental health platform with a RAG-based chatbot, achieving ',
+    aside: 'my FYP — close to my heart',
+    descBefore: 'AI mental health platform with a RAG chatbot — ',
     highlight: '90% response accuracy',
-    descAfter: ' on evaluation sets. Built with Gemini API, Chroma DB, SBERT, React, and Flask.',
+    descAfter:
+      ' on evaluation sets. Built with Gemini, Chroma, SBERT, React, and Flask.',
     tags: ['RAG', 'Gemini', 'SBERT', 'React'],
     featured: true,
   },
   {
     num: '02',
     name: 'TestCraft AI',
-    descBefore:
-      'Parses software requirements and auto-generates test cases, reducing manual QA writing by ',
+    descBefore: 'Calculates requirement coverage from codebase — ',
     highlight: '40%',
-    descAfter: '. Stack: OpenAI, Flask, Qdrant.',
+    descAfter: ' reduction in manual QA writing. OpenAI, Flask, and Qdrant.',
     tags: ['OpenAI', 'Qdrant', 'Flask'],
   },
   {
     num: '03',
     name: 'Study Sage',
-    descBefore:
-      'PDF chat, summaries, and flashcards with context-aware Q&A, cutting study time by ',
+    descBefore: 'Chat with PDFs, summaries, and flashcards — ',
     highlight: '35%',
-    descAfter: '. Built with LangChain, FAISS, and Gemini.',
+    descAfter: ' less study time in testing. LangChain, FAISS, and Gemini.',
     tags: ['LangChain', 'FAISS', 'Gemini'],
   },
   {
     num: '04',
     badge: 'Production',
     name: 'TMS Platform',
-    descBefore:
-      'AI-powered QA automation at PureLogics: requirement analysis and test generation, reducing QA effort by ',
-    highlight: '60%',
-    descAfter: '. LangChain, Django, and agentic workflows.',
+    descBefore: 'AI QA automation at PureLogics — ',
+    highlight: '80%',
+    descAfter: ' less QA effort. LangChain, Django, and agentic workflows.',
     tags: ['Agentic', 'LangChain', 'Django'],
     featured: true,
   },
