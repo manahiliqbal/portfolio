@@ -1,6 +1,22 @@
-# Manahil Iqbal — Notebook Portfolio (React)
+# ✦ Manahil Iqbal — Portfolio
 
-A notebook-style portfolio built with React and Vite, converted from the original HTML mockup.
+A personal portfolio dressed like a notebook page: ruled lines, margin doodles, and a little personality between the professional sections.
+
+Built with **React** and **Vite**. Content lives in one data file so copy updates stay painless.
+
+## Stack
+
+- React 19
+- Vite 6
+- Plain CSS (notebook theme, no UI framework)
+
+## Features
+
+- Full-page sections with smooth scroll navigation
+- Sticky nav with active-section highlighting
+- Notebook surfaces: ruled paper, margin line, pins, stickers, and stars
+- Responsive layout with mobile-friendly decor and nav
+- Content driven by `src/data/portfolioData.js`
 
 ## Run locally
 
@@ -9,33 +25,47 @@ npm install
 npm run dev
 ```
 
-Open the URL shown in the terminal (usually `http://localhost:5173`).
+Open the URL Vite prints ([http://localhost:5173](http://localhost:5173)).
 
-## Build for production
+### Production build
 
 ```bash
 npm run build
 npm run preview
 ```
 
-The static site output is in `dist/`.
+Static output goes to `dist/`.
 
-## Deploy on Vercel
+## Deploy
 
-1. Push this repo to GitHub and import it in [Vercel](https://vercel.com).
-2. **Root Directory** should be the folder that contains `package.json` (repo root if the app is at the top level).
-3. Vercel should auto-detect **Vite**. If not, set:
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `dist`
-   - **Install Command:** `npm install`
-4. This repo includes `vercel.json` with those settings — redeploy after pulling the latest commit.
+### Vercel (recommended)
 
-`dist/` is gitignored on purpose; Vercel creates it during the build. You do not need to commit `dist/`.
+1. Push to GitHub and import the repo in [Vercel](https://vercel.com).
+2. Framework preset: **Vite** (or use the included `vercel.json`).
+   - Build command: `npm run build`
+   - Output directory: `dist`
+3. Deploy. `dist/` is generated at build time — you don’t commit it.
 
-## Project structure
+## Project layout
 
-- `src/components/Portfolio.jsx` — full-page layout and sections
-- `src/components/SiteNav.jsx` — sticky nav with scroll spy
-- `src/data/portfolioData.js` — all portfolio content
-- `src/styles/portfolio.css` — notebook-themed styles
-- `manahil_notebook_portfolio.html` — original HTML reference
+| Path | Purpose |
+|------|---------|
+| `src/components/Portfolio.jsx` | Page sections and layout |
+| `src/components/SiteNav.jsx` | Header nav + mobile menu |
+| `src/components/NotebookDecor.jsx` | Stars, pins, stickers per section |
+| `src/data/portfolioData.js` | Bio, experience, projects, contact |
+| `src/data/sectionDecors.js` | Decoration placement per section |
+| `src/styles/portfolio.css` | Main notebook styles |
+| `src/styles/decorations.css` | Decor animations and stickers |
+| `public/favicon.svg` | Tab icon (gold star on cream) |
+| `manahil_notebook_portfolio.html` | Original static mockup (reference) |
+
+## Customize
+
+Edit **`src/data/portfolioData.js`** for text, links, and section copy.  
+Tweak colors in **`src/index.css`** (`--accent` and related variables).  
+Adjust stickers and pins in **`src/data/sectionDecors.js`**.
+
+---
+
+*Manahil Iqbal · AI Engineer · Lahore*
