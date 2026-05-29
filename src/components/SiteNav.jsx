@@ -37,7 +37,9 @@ export default function SiteNav({ activeId }) {
           onClick={() => handleClick('home')}
           aria-label="Scroll to top"
         >
-          <span className="nav-brand-mark">M.I.</span>
+          <span className="nav-brand-star" aria-hidden="true">
+            ✦
+          </span>
           <span className="nav-brand-text">Manahil Iqbal</span>
         </button>
 
