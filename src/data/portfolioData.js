@@ -6,7 +6,7 @@ export const hero = {
   tagline:
     'I build RAG pipelines and agentic workflows',
   bio:
-    'AI engineer at PureLogics in Lahore, PUCIT grad (3.96 GPA). I like shipping systems that work and people can actually use. Off the clock I’m quiet and thoughtful, a bit creative — usually with matcha or tea nearby.',
+    'AI engineer at PureLogics in Lahore, PUCIT grad (3.96 GPA). I like shipping systems that work and people can actually use.',
   highlights: [
     { label: 'Education', value: 'BS CS · PUCIT · 3.96 GPA' },
     { label: 'Focus', value: 'RAG & agentic AI' },
@@ -51,31 +51,14 @@ export const about = {
   ],
 };
 
-export const human = {
-  title: 'Off the clock',
-  subtitle: 'A bit of the person behind the work.',
-  intro:
-    'When I’m not in code, I’m usually painting, gaming, cooking, or listening to music — introverted by default, warmer once you’re in.',
-  currently: [
-    { emoji: '🍵', label: 'Drink of choice', value: 'Matcha — honey, vanilla' },
-    { emoji: '🎨', label: 'Hobbies', value: 'Art, gaming, music, crafting' },
-    { emoji: '☕', label: 'Also', value: 'Tea or coffee — non-negotiable most days' },
-  ],
-  loves: [
-    'Animated films (yes, I cry)',
-    'Sketching and co-op games',
-    'Trying new recipes without a strict plan',
-  ],
-};
-
 export const navSections = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'life', label: 'Life' },
   { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'education', label: 'Education' },
+  { id: 'life', label: 'Life' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -224,3 +207,20 @@ export const certifications = [
   { course: 'Advanced RAG Applications', provider: 'LinkedIn Learning' },
   { course: 'AI Agents using RAG and LangChain', provider: 'IBM' },
 ];
+
+export const human = {
+  title: 'Off the clock',
+  subtitle: 'A bit of the person behind the work.',
+  intro:
+    'When I’m not in code, I’m usually painting, gaming, cooking, or listening to music — introverted by default, warmer once you’re in.',
+  currently: [
+    { emoji: '🍵', label: 'Drink of choice', value: 'Matcha — honey, vanilla' },
+    { emoji: '🎨', label: 'Hobbies', value: 'Art, gaming, music, crafting' },
+    { emoji: '☕', label: 'Also', value: 'Tea or coffee — non-negotiable most days' },
+  ],
+  loves: [
+    'Animated films (yes, I cry)',
+    'Sketching and co-op games',
+    'Trying new recipes without a strict plan',
+  ],
+};

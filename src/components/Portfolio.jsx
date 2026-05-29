@@ -206,51 +206,10 @@ export default function Portfolio() {
           </NotebookSurface>
         </section>
 
-        <section id="life" className="panel">
-          <NotebookSurface decorKey="life">
-            <SectionHeading
-              num="02"
-              title={human.title}
-              subtitle={sectionCopy.life.subtitle}
-            />
-            <div className="human-layout">
-              <p className="human-intro">{human.intro}</p>
-
-              <div className="human-grid">
-                <div className="human-current">
-                  <h3 className="human-card-title">Right now</h3>
-                  <ul className="human-current-list">
-                    {human.currently.map((item) => (
-                      <li key={item.label}>
-                        <span className="human-current-emoji" aria-hidden="true">
-                          {item.emoji}
-                        </span>
-                        <span>
-                          <span className="human-current-label">{item.label}</span>
-                          <span className="human-current-value">{item.value}</span>
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="human-loves">
-                  <h3 className="human-card-title">Also</h3>
-                  <ul className="human-loves-list">
-                    {human.loves.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </NotebookSurface>
-        </section>
-
-        <section id="skills" className="panel panel-alt">
+        <section id="skills" className="panel">
           <NotebookSurface decorKey="skills">
             <SectionHeading
-              num="03"
+              num="02"
               title="Skills & tools"
               subtitle={sectionCopy.skills.subtitle}
             />
@@ -276,10 +235,10 @@ export default function Portfolio() {
           </NotebookSurface>
         </section>
 
-        <section id="experience" className="panel">
+        <section id="experience" className="panel panel-alt">
           <NotebookSurface decorKey="experience">
             <SectionHeading
-              num="04"
+              num="03"
               title="Experience"
               subtitle={sectionCopy.experience.subtitle}
             />
@@ -303,10 +262,10 @@ export default function Portfolio() {
           </NotebookSurface>
         </section>
 
-        <section id="projects" className="panel panel-alt">
+        <section id="projects" className="panel">
           <NotebookSurface decorKey="projects">
             <SectionHeading
-              num="05"
+              num="04"
               title="Projects"
               subtitle={sectionCopy.projects.subtitle}
             />
@@ -349,10 +308,10 @@ export default function Portfolio() {
           </NotebookSurface>
         </section>
 
-        <section id="education" className="panel panel-compact">
+        <section id="education" className="panel panel-alt panel-compact">
           <NotebookSurface decorKey="education">
             <SectionHeading
-              num="06"
+              num="05"
               title="Education & certifications"
               subtitle={sectionCopy.education.subtitle}
             />
@@ -381,6 +340,47 @@ export default function Portfolio() {
                   ))}
                 </ul>
               </article>
+            </div>
+          </NotebookSurface>
+        </section>
+
+        <section id="life" className="panel">
+          <NotebookSurface decorKey="life">
+            <SectionHeading
+              num="06"
+              title={human.title}
+              subtitle={sectionCopy.life.subtitle}
+            />
+            <div className="human-layout">
+              <p className="human-intro">{human.intro}</p>
+
+              <div className="human-grid">
+                <div className="human-current">
+                  <h3 className="human-card-title">Right now</h3>
+                  <ul className="human-current-list">
+                    {human.currently.map((item) => (
+                      <li key={item.label}>
+                        <span className="human-current-emoji" aria-hidden="true">
+                          {item.emoji}
+                        </span>
+                        <span>
+                          <span className="human-current-label">{item.label}</span>
+                          <span className="human-current-value">{item.value}</span>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="human-loves">
+                  <h3 className="human-card-title">Also</h3>
+                  <ul className="human-loves-list">
+                    {human.loves.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </NotebookSurface>
         </section>
