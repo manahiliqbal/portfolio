@@ -1,11 +1,11 @@
 :root {
   --accent: #c45c7a;
   --accent-hover: #a84d68;
-  --accent-soft: #e8a4b8;
-  --accent-deep: #9e4a63;
   --accent-pill-border: #e8a0b4;
-  --accent-pill-text: #6b3548;
   --accent-rgb: 196, 92, 122;
+  --ink-muted: #756650;
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
 }
 
 *,

@@ -1,6 +1,5 @@
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import { decorForViewport } from '../utils/mobileDecors';
-import { buildScatter } from '../utils/scatterDecor';
 import '../styles/decorations.css';
 
 const STAR_COLORS = {
@@ -46,63 +45,20 @@ export function PaperPin({ color = 'red', className = '', size = 28 }) {
   );
 }
 
-function Sticker({ label, color = 'peach', className = '' }) {
-  return (
-    <span className={`deco-sticker deco-sticker--${color} ${className}`} aria-hidden="true">
-      {label}
-    </span>
-  );
-}
-
-function Squiggle({ className = '' }) {
-  return (
-    <svg
-      className={`deco-squiggle ${className}`}
-      width="48"
-      height="24"
-      viewBox="0 0 48 24"
-      aria-hidden="true"
-    >
-      <path
-        d="M2 14 Q12 4 22 12 T42 10"
-        fill="none"
-        stroke="#c45c7a"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        opacity="0.55"
-      />
-    </svg>
-  );
-}
-
 function DecorItem({ item }) {
   const style = {
     top: item.top,
     right: item.right,
     left: item.left,
     bottom: item.bottom,
-    '--deco-delay': `${item.delay ?? 0}s`,
     '--deco-rotate': `${item.rotate ?? 0}deg`,
   };
-
-  const animClass = item.anim
-    ? `deco-anim-${item.anim}`
-    : item.type === 'pin'
-      ? 'deco-anim-wiggle'
-      : item.type === 'squiggle'
-        ? 'deco-anim-float'
-        : 'deco-anim-twinkle';
 
   const classes = [
     'deco-item',
     `deco-item--${item.type}`,
-    item.left != null && !item.edge && !item.gutter ? 'deco-item--side-left' : '',
-    item.right != null && !item.edge && !item.gutter ? 'deco-item--side-right' : '',
     item.edge === 'left' ? 'deco-item--edge-left' : '',
     item.edge === 'right' ? 'deco-item--edge-right' : '',
-    item.scatter ? 'deco-item--scatter' : '',
-    item.gutter ? 'deco-item--gutter' : '',
-    animClass,
   ]
     .filter(Boolean)
     .join(' ');
@@ -111,32 +67,20 @@ function DecorItem({ item }) {
     <div className={classes} style={style}>
       {item.type === 'star' && <Star variant={item.variant} size={item.size} />}
       {item.type === 'pin' && <PaperPin color={item.color} />}
-      {item.type === 'sticker' && <Sticker label={item.label} color={item.color} />}
-      {item.type === 'squiggle' && <Squiggle />}
     </div>
   );
 }
 
-export default function NotebookDecor({ items = [], scatter = 'normal' }) {
+export default function NotebookDecor({ items = [] }) {
   const isMobile = useMediaQuery('(max-width: 768px)');
-  const isTablet = useMediaQuery('(max-width: 960px)');
-  const { items: viewportItems, scatter: viewportScatter } = decorForViewport(items, scatter, {
-    isMobile,
-    isTablet,
-  });
+  const viewportItems = decorForViewport(items, { isMobile });
 
-  const scatterItems = viewportScatter ? buildScatter(viewportScatter) : [];
-  const allItems = [...viewportItems, ...scatterItems];
-
-  if (!allItems.length) return null;
+  if (!viewportItems.length) return null;
 
   return (
     <div className="notebook-decor" aria-hidden="true">
-      {allItems.map((item, i) => (
-        <DecorItem
-          key={`${item.type}-${item.label ?? item.variant ?? item.edge}-${item.top}-${i}`}
-          item={item}
-        />
+      {viewportItems.map((item, i) => (
+        <DecorItem key={`${item.type}-${item.variant ?? item.color}-${item.top}-${i}`} item={item} />
       ))}
     </div>
   );
